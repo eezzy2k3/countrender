@@ -17,7 +17,7 @@ const MainRoutes = {
       element: <Home />
     },
     {
-      path: "/countdown",
+      path: "/:event",
       element: <CountDownPage />
     }
   ]

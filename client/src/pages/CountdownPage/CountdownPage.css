@@ -1,0 +1,52 @@
+.countdown__container h1 {
+  font-size: 6rem;
+  margin-bottom: 6rem;
+}
+
+.countdown {
+  justify-content: space-between;
+}
+
+.countdown__container h1 {
+  font-size: 6rem;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.days,
+.hours,
+.mins,
+.secs {
+  position: relative;
+  display: flex;
+  margin: 12px;
+  flex-direction: column;
+  height: 90px;
+  width: 90px;
+  border-radius: 100px;
+  box-shadow: 0px 0px 0px 5px rgb(255 255 255 / 50%);
+  background: #fff;
+  color: #333;
+  align-items: center;
+  justify-content: center;
+}
+
+.days span,
+.hours span,
+.mins span,
+.secs span {
+  font-weight: 500;
+
+  font-size: 4rem;
+  color: #f84982;
+  text-align: center;
+}
+
+.days p,
+.hours p,
+.mins p,
+.secs p {
+  color: black;
+  font-weight: 700;
+  font-size: 1.5rem;
+}

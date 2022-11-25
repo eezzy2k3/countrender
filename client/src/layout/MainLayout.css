@@ -2,8 +2,9 @@
   min-height: 100vh;
   height: 100%;
   padding: 30px;
+  display: grid;
+  place-items: center;
   background: url("../assets/images/bg.jpg");
-
   background-size: cover;
 }
 
