@@ -3,6 +3,7 @@ const express = require("express");
 const createRoute = require("./src/routes/routes");
 const errorHandler = require("./src/middlewares/errorHandler");
 const task = require("./job");
+const cors = require("cors")
 
 
 // initializing express
@@ -23,7 +24,7 @@ const connectDb = require("./config/config")
 connectDb()
 
 task.start()
-
+app.use(cors())
 app.use("/api/v1/countdown", createRoute)
 app.use(errorHandler)
 
