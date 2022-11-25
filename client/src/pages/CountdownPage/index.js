@@ -1,4 +1,7 @@
+import { useParams } from "react-router-dom";
+
 const CountdownPage = () => {
-  return "Countdown";
+  const { event } = useParams();
+  return event;
 };
 export default CountdownPage;
