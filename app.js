@@ -30,7 +30,7 @@ app.use("/api/v1/countdown", createRoute)
 const port = process.env.PORT || 3000
 
 app.listen(port,()=>{
- console.log(`app is listening on http://localhost:${port}`)
+ console.log(`app is listening on port ${port}`)
 })
 
 module.exports = app
