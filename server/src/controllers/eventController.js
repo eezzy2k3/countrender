@@ -31,5 +31,18 @@ const createCountDown = async (req,res,next)=>{
     }
 }
 
+const getCountDown = async (req,res,next) => {
+    const eventName = req.params.eventName;
+    const event = await CountDown.findOne({eventName});
+    
+    if(!event) return next( new  ErrorResponse(`No ${eventName} event`,404));
+    
+    let todaysDate = new Date().getTime();
+    const eventDate = new Date(event.eventDate).getTime();
+    const difference = (eventDate - todaysDate)/1000
+    
+    if(difference < 0) return next(new ErrorResponse("event has occurred", 400));
+        res.status(200).json({ success: true, message:`This is the count down for ${event.eventName}, a ${event.eventDescription}`,time:difference}
+)}
 
-module.exports = {createCountDown}
+module.exports = { getCountDown, createCountDown }
