@@ -1,32 +1,36 @@
 require("dotenv").config()
+const express = require("express");
+const createRoute = require("./src/routes/routes");
+const errorHandler = require("./src/middlewares/errorHandler");
+const task = require("./job");
 
-const express = require("express")
 
+// initializing express
 const app = express()
 
+
+// middleware
 app.use(express.json())
-
 app.use(express.urlencoded({extended:true}))
+app.use(errorHandler)
 
-const errorHandler = require("./src/middlewares/errorHandler")
 
+// imitializing Db
 const connectDb = require("./config/config")
 
-const task = require("./job")
 
-const createRoute = require("./src/routes/countDownRoute")
-
+// connection to Db
 connectDb()
 
 task.start()
 
-app.use("/api/v1/countdown",createRoute)
+app.use("/api/v1/countdown", createRoute)
 
-app.use(errorHandler)
 
 const port = process.env.PORT || 3000
 
 app.listen(port,()=>{
- console.log(`app is listening on port ${port}`)
+ console.log(`app is listening on http://localhost:${port}`)
 })
 
+module.exports = app
