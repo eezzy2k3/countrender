@@ -42,7 +42,8 @@ const getCountDown = async (req,res,next) => {
     const difference = (eventDate - todaysDate)/1000
     
     if(difference < 0) return next(new ErrorResponse("event has occurred", 400));
-        res.status(200).json({ success: true, message:`This is the count down for ${event.eventName}, a ${event.eventDescription}`,time:difference}
+       
+    res.status(200).json({ success: true, message:`This is the count down for ${event.eventName}, a ${event.eventDescription}`,time:event.eventDate}
 )}
 
 module.exports = { getCountDown, createCountDown }
